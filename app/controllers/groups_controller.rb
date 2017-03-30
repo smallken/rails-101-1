@@ -1,4 +1,9 @@
 class GroupsController < ApplicationController
+  
+  def index
+    @groups = current_user.participated_groups
+  end
+
 before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
 before_action :find_group_and_check_permission, only: [:edit, :update, :destroy]
   def index
